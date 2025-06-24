@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tools</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Time Tools</h1>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="clock">World Clock</button>
+            <button class="tab-btn" data-tab="stopwatch">Stopwatch</button>
+        </div>
+
+        <div id="clock" class="tab-content active">
+            <div class="time-display">
+                <span id="current-time">00:00:00</span>
+                <span id="am-pm"></span>
+            </div>
+            <div class="clock-controls">
+                <select id="timezone-select">
+                    {% for tz in timezones %}
+                    <option value="{{ tz }}">{{ tz }}</option>
+                    {% endfor %}
+                </select>
+                <div class="toggle-container">
+                    <span>24h</span>
+                    <label class="switch">
+                        <input type="checkbox" id="format-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>12h</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="stopwatch" class="tab-content">
+            <div class="time-display" id="stopwatch-display">00:00:00.000</div>
+            <div class="controls">
+                <button id="start-btn">Start</button>
+                <button id="stop-btn">Stop</button>
+                <button id="pause-btn">Pause</button>
+                <button id="reset-btn">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
